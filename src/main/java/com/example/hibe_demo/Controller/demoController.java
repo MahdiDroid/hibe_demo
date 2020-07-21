@@ -34,6 +34,14 @@ public class demoController {
                                                @PathVariable  String Module){
         return questionService.findModuleQuestionByQuestionType(questionType,Module);
     }
+    @GetMapping("/search/{questionType}")
+    public Object searchAllQuestion(@PathVariable String questionType ){
+        return questionService.searchAll(questionType);
+    }
+    @GetMapping("/searchall/{number}")
+    public Object searchAllByRandom(@PathVariable int number ){
+        return questionService.searchSomeRandomly(number);
+    }
 
 
 

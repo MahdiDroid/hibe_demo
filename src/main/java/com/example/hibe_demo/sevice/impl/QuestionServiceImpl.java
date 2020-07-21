@@ -38,4 +38,21 @@ public class QuestionServiceImpl implements QuestionService {
     public List<Question> findModuleQuestionByQuestionType(QuestionType questionType, String module) {
         return questionRepository.findAllByQuestionTypeAndModuleName(questionType,module);
     }
+
+    @Override
+    public List<Question> findQuestionByType(int number,
+                                             QuestionType qType,
+                                             String moduleName) {
+       return null;
+    }
+
+    @Override
+    public List<Question> searchAll(String qType) {
+        return questionRepository.searchQuestion(qType);
+    }
+
+    @Override
+    public List<Question> searchSomeRandomly(int number) {
+        return questionRepository.searchRandomly(number);
+    }
 }
