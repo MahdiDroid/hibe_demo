@@ -29,6 +29,12 @@ public interface QuestionRepository extends CrudRepository<Question,Integer> {
             nativeQuery=true)
     List<Question> searchRandomly(@Param("number") int number);
 
+    @Query(value="SELECT * FROM question WHERE module_name = :moduleName and question_type = :questionType ORDER BY RAND() LIMIT :number ",
+            nativeQuery=true)
+    List<Question> searchRandomlyByModuleNameAndQuestionType(@Param("number") int number,
+                                                             @Param("moduleName") String moduleName,
+                                                             @Param("questionType") String questionType);
+
 
 //    @Query("SELECT q FROM Question q WHERE questionType = ?1 AND moduleName = ?2")
 

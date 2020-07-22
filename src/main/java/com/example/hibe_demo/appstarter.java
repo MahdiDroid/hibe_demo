@@ -2,6 +2,7 @@ package com.example.hibe_demo;
 
 import com.example.hibe_demo.Entity.Question;
 import com.example.hibe_demo.Entity.QuestionType;
+import com.example.hibe_demo.Repository.LanguageRepository;
 import com.example.hibe_demo.Repository.QuestionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ public class appstarter implements CommandLineRunner {
 
 
     private QuestionRepository questionRepository;
+    private LanguageRepository
 
     public appstarter( QuestionRepository questionRepository) {
           this.questionRepository = questionRepository;

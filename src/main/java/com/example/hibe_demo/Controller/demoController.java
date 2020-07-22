@@ -43,6 +43,14 @@ public class demoController {
         return questionService.searchSomeRandomly(number);
     }
 
+    @GetMapping("/searchQuestion/{number}/moduleName/{moduleName}/{questionType}")
+    public Object searchQuestionRandomlyByModuleNameAndQuestionType(@PathVariable int number,
+                                                                    @PathVariable String moduleName,
+                                                                    @PathVariable String questionType ){
+
+        return questionService.searchRandomlyByModuleNameAndQuestionType(number,moduleName,questionType);
+    }
+
 
 
 

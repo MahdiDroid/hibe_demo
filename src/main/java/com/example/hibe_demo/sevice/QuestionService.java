@@ -14,4 +14,6 @@ public interface QuestionService {
     List<Question> findQuestionByType(int number, QuestionType qType,String moduleName);
     List<Question> searchAll(String qType);
     List<Question> searchSomeRandomly(int number);
+    List<Question> searchRandomlyByModuleNameAndQuestionType(int number,String moduleName,String questionType);
+
 }

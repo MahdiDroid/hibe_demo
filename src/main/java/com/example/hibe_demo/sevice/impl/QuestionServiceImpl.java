@@ -55,4 +55,9 @@ public class QuestionServiceImpl implements QuestionService {
     public List<Question> searchSomeRandomly(int number) {
         return questionRepository.searchRandomly(number);
     }
+
+    @Override
+    public List<Question> searchRandomlyByModuleNameAndQuestionType(int number, String moduleName, String questionType) {
+        return questionRepository.searchRandomlyByModuleNameAndQuestionType(number,moduleName,questionType);
+    }
 }
