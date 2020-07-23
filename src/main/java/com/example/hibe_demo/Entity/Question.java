@@ -16,14 +16,18 @@ public class Question {
         private String moduleName;
         private String question;
         private int NumberOfBlank;
-        @ElementCollection
-        @CollectionTable(name = "question_correctAnswer",joinColumns = @JoinColumn(name = "question_id"))
-        @Column(name = "correctAnswer")
-        private List<String> correctAnswers = new ArrayList<>();
-        @ElementCollection
-        @CollectionTable(name = "question_incorrectAnswer",joinColumns = @JoinColumn(name = "question_id"))
-        @Column(name = "incorrectAnswer")
-         private List<String> incorrectAnswers = new ArrayList<>();
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name="question_id",nullable = false)
+        private List<QuestionTranslation> questionTranslations = new ArrayList<>();
+
+//        @ElementCollection
+//        @CollectionTable(name = "question_correctAnswer",joinColumns = @JoinColumn(name = "question_id"))
+//        @Column(name = "correctAnswer")
+//        private List<String> correctAnswers = new ArrayList<>();
+//        @ElementCollection
+//        @CollectionTable(name = "question_incorrectAnswer",joinColumns = @JoinColumn(name = "question_id"))
+//        @Column(name = "incorrectAnswer")
+//         private List<String> incorrectAnswers = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -73,19 +77,28 @@ public class Question {
         NumberOfBlank = numberOfBlank;
     }
 
-    public List<String> getCorrectAnswers() {
-        return correctAnswers;
+    public List<QuestionTranslation> getQuestionTranslations() {
+        return questionTranslations;
     }
 
-    public void setCorrectAnswers(List<String> correctAnswers) {
-        this.correctAnswers = correctAnswers;
+    public void setQuestionTranslations(List<QuestionTranslation> questionTranslations) {
+        this.questionTranslations = questionTranslations;
     }
 
-    public List<String> getIncorrectAnswers() {
-        return incorrectAnswers;
-    }
-
-    public void setIncorrectAnswers(List<String> incorrectAnswers) {
-        this.incorrectAnswers = incorrectAnswers;
-    }
+    //
+//    public List<String> getCorrectAnswers() {
+//        return correctAnswers;
+//    }
+//
+//    public void setCorrectAnswers(List<String> correctAnswers) {
+//        this.correctAnswers = correctAnswers;
+//    }
+//
+//    public List<String> getIncorrectAnswers() {
+//        return incorrectAnswers;
+//    }
+//
+//    public void setIncorrectAnswers(List<String> incorrectAnswers) {
+//        this.incorrectAnswers = incorrectAnswers;
+//    }
 }
